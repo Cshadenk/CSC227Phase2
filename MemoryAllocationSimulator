@@ -90,9 +90,9 @@ static class MemoryBlock {
         int index = -1;
 
         switch (strategy) {
-            case 'F': index = firstFit(size); break;
-            case 'B': index = bestFit(size); break;
-            case 'W': index = worstFit(size); break;
+            case 'F': index = FirstFit(size); break;
+            case 'B': index = BestFit(size); break;
+            case 'W': index = WorstFit(size); break;
             default:
                 System.out.println("Invalid strategy.");
                 return;
@@ -123,14 +123,14 @@ static class MemoryBlock {
         System.out.println("Process " + name + " allocated from " + start + " to " + end);
     }
 
-    private static int firstFit(int size) {
+    private static int FirstFit(int size) {
         for (int i = 0; i < memory.size(); i++)
             if (memory.get(i).isFree() && memory.get(i).size() >= size)
                 return i;
         return -1;
     }
 
-    private static int bestFit(int size) {
+    private static int BestFit(int size) {
         int bestIndex = -1;
         int smallestIndex = Integer.MAX_VALUE;
 
@@ -144,7 +144,7 @@ static class MemoryBlock {
         return bestIndex;
     }
 
-    private static int worstFit(int size) {
+    private static int WorstFit(int size) {
         int worstIndex = -1;
         int largestIndex = -1;
 
