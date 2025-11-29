@@ -1,6 +1,5 @@
 package CSC227PHASE2;
 
-package OS;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
